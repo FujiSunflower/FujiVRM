@@ -3,5 +3,6 @@
 VRM 0系にのみ対応しています。
 FastSpringBoneは削除しました。
 
-## License
+## ライセンス
+### UniVRM
 [MIT License](./LICENSE.txt)
