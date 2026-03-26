@@ -19,6 +19,10 @@ namespace VRMShaders
                 originalMaxSize > 512 ? 1024 :
                 512;
         }
+        private static void ConfigureCompression(TextureImporter textureImporter)
+        {
+            textureImporter.textureCompression = TextureImporterCompression.Uncompressed;
+        }
 
         private static void ConfigureNormalMap(TextureImporter textureImporter)
         {
@@ -46,6 +50,7 @@ namespace VRMShaders
                     {
                         ConfigureSize(importer);
                         ConfigureNormalMap(importer);
+                        ConfigureCompression(importer);
                     }
                     break;
 
@@ -53,12 +58,14 @@ namespace VRMShaders
                     {
                         ConfigureSize(importer);
                         ConfigureLinear(importer);
+                        ConfigureCompression(importer);
                     }
                     break;
 
                 case TextureImportTypes.sRGB:
                     {
                         ConfigureSize(importer);
+                        ConfigureCompression(importer);
                     }
                     break;
 
@@ -66,11 +73,13 @@ namespace VRMShaders
                     {
                         ConfigureSize(importer);
                         ConfigureLinear(importer);
+                        ConfigureCompression(importer);
                     }
                     break;
 
                 default:
-                    throw new NotImplementedException();
+                    Debug.LogException(new NotImplementedException());
+                    break;
             }
 
             ConfigureSampler(texDesc, importer);
